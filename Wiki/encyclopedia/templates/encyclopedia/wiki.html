@@ -1,0 +1,12 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    {{ entry | safe }} <!-- <string>|safe is django command to input string into html file without formatting -->
+        <form action="{% url 'edit' title %}" method="get">
+            <input type="submit" value="Edit">
+        </form>
+{% endblock %}

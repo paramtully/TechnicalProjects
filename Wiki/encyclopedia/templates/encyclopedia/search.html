@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+{% block title %}
+    Search
+{% endblock %}
+
+{% block body %}
+    <h1>Related Topics</h1>
+    <ul>
+        {% for title in titles %}
+        <li><a href="{% url 'wiki' title %}">{{ title }}</a></li>
+        {% empty %}
+        <li>No entries found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
