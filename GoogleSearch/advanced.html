@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>advanced</title>
+        <link rel="stylesheet" href="style2.css">
+        <meta name="viewport" content="device-width, initial-scale=1.0">
+        <style>
+            @media(min-width: 1210px) {
+                .c3 {
+                    visibility: visible;
+                }
+            }
+            @media(max-width: 1209px) {
+                .c3 {
+                    visibility: hidden;
+                    height: 0px;
+                    margin: 0px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div> <!-- top bar -->
+            <a id="imgLink" class="t1" href="search.html">
+                <img id="linkIcon" src="https://www.google.ca/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google">
+            </a>
+        </div>
+        <div> <!-- Advanced heading -->
+            <h2 id="advancedHeading">Advanced Search</h2>
+            <hr>
+        </div>
+        <div> <!-- form -->
+            <form>
+                <div class="container"> <!-- find pages with -->
+                    <div class="r"> <!-- heading -->
+                        <div class="c1">
+                            <text class="t2">Find pages with...</text>
+                        </div>
+                        <div class="c2 blankDiv" value="."></div>
+                        <div class="c3">
+                            <text class="t3">To do this in the search box.</text>
+                        </div>
+                    </div>
+
+                    
+                    <div class="r"> <!-- r1 -->
+                        <div class="c1"> <!-- prompt -->
+                            <text class="t4">All these words:</text>
+                        </div>
+                        <div class="c2"> <!-- input -->
+                            <input class="searchBar" name="as_q" autofocus>
+                        </div>
+                        <div class="c3"> <!-- tip -->
+                            <text class="t5">Type the important words: tri-colour rat terrier</text>
+                        </div>
+                    </div>
+
+                    <div class="r"> <!-- r2 -->
+                        <div class="c1">
+                            <text class="t4">this exact word or phrase:</text>
+                        </div>
+                        <div class="c2">
+                            <input class="searchBar" name="as_epq">
+                        </div>
+                        <div class="c3">
+                            <text class="t5">Put exact words in quotes: "rat terrier"</text>
+                        </div>
+                    </div>
+
+                    <div class="r"> <!-- r3 -->
+                        <div class="c1">
+                            <text class="t4">any of these words:</text>
+                        </div>
+                        <div class="c2">
+                            <input class="searchBar" name="as_oq">
+                        </div>
+                        <div class="c3">
+                            <text class="t5">Type OR between all the words you want: miniature OR standard</text>
+                        </div>
+                    </div>
+
+                    <div class="r"> <!-- r4 -->
+                        <div class="c1">
+                            <text class="t4">none of these words:</text>
+                        </div>
+                        <div class="c2">
+                            <input class="searchBar" name="as_eq">
+                        </div>
+                        <div class="c3">
+                            <text class="t5">Put a minus sign just before words that you don't want: -rodent, -"Jack Russell"</text>
+                        </div>
+                    </div>
+
+                    <div class="r"> <!-- r5 -->
+                        <div class="c1">
+                            <text class="t4">numbers ranging from:</text>
+                        </div>
+                        <div class="c2">
+                            <input class="subSearchBar" name="as_nlo">
+                            <text style="margin:10px;padding:5px">to</text>
+                            <input class="subSearchBar" name="as_nhi">
+                        </div>
+                        <div class="c3">
+                            <text class="t5">Put two full stops between the numbers and add a unit of measurement: 10..35 kg, £300..£500, 2010..2011</text>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div class="container"> <!-- Then narrow your results by -->
+
+                    <div class="c1" style="margin-bottom: 15px;"> <!-- Heading -->
+                        <text class="t2">Then narrow your results by...</text>
+                    </div>
+
+                    <div class="r"> <!-- r6 -->
+                        <div class="c1">
+                            <text class="t4">language:</text>
+                        </div>
+                        <div class="c2">
+                            <input class="searchBar" name="lr" list="languages" placeholder="any language">
+                            <datalist id="languages">
+                                <option value="English">
+                                <option value="French">
+                                <option value="Spanish">
+                                <option value="Punjabi">
+                            </datalist>
+                        </div>
+                        <div class="c3">
+                            <text class="t5">Find pages in the language that you select.</text>
+                        </div>
+                    </div>
+
+                    <div class="r"> <!-- r7 -->
+                        <div class="c1">
+                            <text class="t4">region:</text>
+                        </div>
+                        <div class="c2">
+                            <input class="searchBar" name="cr" list="regions" placeholder="any region">
+                            <datalist id="regions">
+                                <option value="Canada">
+                                <option value="United States">
+                                <option value="Mexico">
+                                <option value="India">
+                            </datalist>
+                        </div>
+                        <div class="c3">
+                            <text class="t5">Find pages published in a particular region.</text>
+                        </div>
+                    </div>
+
+                    <div class="r"> <!-- r8 -->
+                        <div class="c1">
+                            <text class="t4">last update:</text>
+                        </div>
+                        <div class="c2">
+                            <input class="searchBar" name="as_qdr" list="time" placeholder="any time">
+                            <datalist id="time">
+                                <option value="anytime">
+                                <option value="last 24 hours">
+                                <option value="upto a week ago">
+                                <option value="upto a month ago">
+                                <option value="upto a year ago">
+                            </datalist>
+                        </div>
+                        <div class="c3">
+                            <text class="t5">Find pages updated within the time that you specify.</text>
+                        </div>
+                    </div>
+
+                    <div class="r"> <!-- r9 -->
+                        <div class="c1">
+                            <text class="t4">site or domain:</text>
+                        </div>
+                        <div class="c2">
+                            <input class="searchBar" name="as_sitesearch">
+                        </div>
+                        <div class="c3">
+                            <text class="t5">Search one site (like  wikipedia.org ) or limit your results to a domain like .edu, .org or .gov</text>
+                        </div>
+                    </div>
+
+                    <div class="r"> <!-- r10 -->
+                        <div class="c1">
+                            <text class="t4">terms appearing:</text>
+                        </div>
+                        <div class="c2">
+                            <input class="searchBar" name="as_occt" list="termsAppearing" placeholder="where it appears">
+                            <datalist id="termsAppearing">
+                                <option value="anywhere in the page">
+                                <option value="in the title of the page">
+                                <option value="in the text of the page">
+                                <option value="in hte URL of the page">
+                                <option value="in links to the page">
+                            </datalist>
+                        </div>
+                        <div class="c3">
+                            <text class="t5">Search for terms in the whole page, page title or web address, or links to the page you're looking for.</text>
+                        </div>
+                    </div>
+
+                    <div class="r"> <!-- r11 -->
+                        <div class="c1">
+                            <a style="color:blue; margin-left:0px;" href="https://support.google.com/websearch?p=adv_safesearch&hl=en" class="t4">SafeSearch:</a>
+                        </div>
+                        <div class="c2">
+                            <input class="searchBar" name="safe" list="safeList" placeholder="filter explicit content">
+                            <datalist id="safeList">
+                                <option value="Show explicit results">
+                                <option value="Hide explicit results">
+                            </datalist>
+                        </div>
+                        <div class="c3">
+                            <text style="margin: auto 0;" class="t5">Tell</text>
+                            <a style="color:blue; margin: auto 0;" href="https://support.google.com/websearch?p=adv_safesearch&hl=en" class="t5">SafeSearch</a>
+                            <text style="margin: auto 0;" class="t5">whether to filter sexually explicit content.</text>
+                        </div>
+                    </div>
+
+                    <div class="r"> <!-- r12 -->
+                        <div class="c1">
+                            <text class="t4">file type:</text>
+                        </div>
+                        <div class="c2">
+                            <input class="searchBar" name="as_filetype" list="files" placeholder="any format">
+                            <datalist id="files">
+                                <option value="Adobe Acrobat PDF (.pdf)">
+                                <option value="Adobe Postscript (.ps)">
+                                <option value="Autodesk DWF (.dwf)">
+                                <option value="Google Earth KML (.kml)">
+                                <option value="Google Earth KMZ (.kmz)">
+                                <option value="Microsoft Excel (.xls)">
+                                <option value="Microsoft PowerPoint (.ppt)">
+                                <option value="Microsoft Word (.doc)">
+                                <option value="Rich Text Format (.rtf)">
+                                <option value="Shockwave Flash (.swf)">
+                            </datalist>
+                        </div>
+                        <div class="c3">
+                            <text class="t5">Find pages in the format that you prefer.</text>
+                        </div>
+                    </div>
+
+                    <div class="r"> <!-- r13 -->
+                        <div class="c1">
+                            <a style="color:blue; margin-left:0px;" href="https://support.google.com/websearch?p=ws_images_usagerights&hl=en" class="t4">usage rights:</a>
+                        </div>
+                        <div class="c2">
+                            <input class="searchBar" data-name="sur" list="safeList" placeholder="any usage rights">
+                            <datalist id="safeList">
+                                <option value="not filtered by licence">
+                                <option value="free to use or share">
+                                <option value="free to use or share, even commercially">
+                                <option value="free to use share or modify">
+                                <option value="free to use, share or modify, even commercially">
+                            </datalist>
+                        </div>
+                        <div class="c3">
+                            <text class="t5">Find pages that you are free to use yourself.</text>
+                        </div>
+                    </div>
+
+                    <div class="r"> <!-- submit button -->
+                        <div class="c1">&nbsp</div>
+                        <div style="text-align: right;" class="c2">
+                            <input id="advSubmit" type="submit" value="Advanced Search">
+                        </div>
+                        <div class="c3">&nbsp</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

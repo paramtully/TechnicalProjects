@@ -1,0 +1,91 @@
+
+.center {
+    text-align: center;
+}
+
+#google {
+    height: 92px;
+    width: 272px;
+    margin: 20px;
+}
+
+.t1 {
+    color: #3c4043;
+    font-size: 14px;
+    font-family: arial,sans-serif;
+}
+
+#topBar {
+    margin-top: 15px;
+    text-align: right;
+}
+
+.searchBody {
+    margin-top: 20vh;
+}
+
+.pageLink {
+    margin: 0 10px;
+}
+
+#searchBubble {
+    height: 44px;
+    max-width: 638px;
+    margin: 0 auto;
+    border:1px solid #dfe1e5;
+    border-radius: 24px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+#searchBubble:hover {
+    box-shadow: 0px 0px 6px lightgray;
+}
+
+#searchBox {
+    height: 42px;
+    width: 95%;
+    border: none;
+    font-size: 16px;
+    color: #202124;
+    outline: none;
+}
+
+#mg {
+    width: 18px;
+    height: 18px;
+    opacity: 0.4;
+    vertical-align: middle;
+    margin-bottom: 3px;
+}
+
+.searchButtons {
+    text-align: center;
+    margin: 25px auto;
+}
+
+.searchButton {
+    height: 36px;
+    min-width: 54px;
+    width: 140px;
+    border: 0px solid #f8f9fa;
+    border-radius: 4px;
+    margin: 5px;
+    background-color: #f8f9fa;
+}
+
+.searchButton:hover {
+    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    background-color: #f8f9fa;
+    border: 1px solid #dadce0;
+    color: #202124;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(21, 21, 190);
+}
+
+a:hover {
+    text-decoration: underline;
+}
