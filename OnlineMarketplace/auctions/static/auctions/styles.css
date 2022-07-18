@@ -1,0 +1,12 @@
+body {
+    padding: 10px;
+}
+
+.block {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background-color: lightgray;
+    border-color: grey;
+    border-style: solid 1px;
+}

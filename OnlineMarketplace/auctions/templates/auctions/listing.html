@@ -1,0 +1,83 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    {% load crispy_forms_tags %}  
+    <div class="nav-link border text-dark">
+        <h1>Listing: {{listing.item}}</h1>
+
+        <!-- Display watchlist options -->
+        {% if not listing.closed %}
+            <form action="{% url 'listing' listing.id %}" method="post" name="userWatchlist">
+                {% csrf_token %}
+                {% if watching %}
+                    <button class="btn btn-secondary btn-sm mb-2" name="unwatch">Watching</button>
+                {% else %}
+                    <button class="btn btn-outline-secondary btn-sm mb-2" name="watch">Add to Watchlist</button>
+                {% endif %}
+            </form>
+        {% endif %}
+
+        <!-- Display image and item details -->
+        <img class="mt-1 mb-1" src="{{ listing.image.url }}" alt="Item image" style="width: 400px; height: auto">
+        <h6 class="mt-3 mb-3">{{ listing.description }}</h6>
+        {% if listing.closed and listing.buyer %}
+            <h4 class="mt-1 mb-1">Item has been sold to {{ listing.buyer.username }} for ${{ listing.price }}.</h4>
+        {% elif listing.closed %}
+            <h4 class="mt-1 mb-1">Listing was closed without a buyer.</h4>
+        {% else %}
+            <h3 class="mt-1 mb-1">${{ listing.price }}</h3>
+        {% endif %}
+
+        <!-- Display message -->
+        {% if message %}
+            <h6 class="text-info">{{ message }}</h6>
+        {% endif %}
+
+        <!-- Display bid history and bid form or end form -->
+        {% if listing.closed %}
+        {% else %}
+
+            <small class="text-muted">
+                {{bidCount}} bid(s) so far.
+                {% if bidCount and userIsHighestBid %}
+                    Your bid is the current bid at ${{ highestBid }}.
+                {% elif bidCount %}
+                    The current bid is ${{ highestBid }}.
+                {% endif %}
+            </small>
+
+            <form action="{% url 'listing' listing.id %}" method="post" name="interact">
+                {% csrf_token %}
+                {% if user == listing.seller %}
+                    <button class="btn btn-outline-danger btn-md mb-2 mt-2" name="close">Close Listing</button>
+                {% else %}
+                    {{ bidForm | crispy }}
+                    <input type="submit" class="btn btn-primary" value="Place Bid" name="bidAmount">
+                {% endif %}
+            </form>
+        {% endif %}
+
+        <!-- Display other details -->
+        <h4 class="mt-3 mb-2">Details:</h4>
+        <ul>
+            <li>Listed by: {{ listing.seller }}</li>
+            <li>Category: {{ category }}</li>
+        </ul>
+
+        <!-- Display comment form and comments-->
+        <div class="nav-link border text-dark bg-light">
+            {% for comment in comments %}
+                <h6 class="mt-2 mb-2">{{ comment }}</h6>
+            {% empty %}
+                <h6 class="mt-2 mb-2">No comments yet.</h6>
+            {% endfor %}
+
+            <form action="{% url 'listing' listing.id %}" method="post" name="addComment">
+                {% csrf_token %}
+                {{ commentForm | crispy }}
+                <input type="submit" class="btn btn-primary">
+            </form>
+        </div>
+        
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h1>Active Listings</h1>
+    <ul class="list-unstyled">
+        {% for listing in listings %}
+            {% if not listing.closed %}
+                <a href="{% url 'listing' listing.id %}" class="nav-link border text-dark"> 
+                    <li class="media" style="margin: 5px;">
+                        <img class="mr-3" src="{{ listing.image.url }}" alt="Item image" style="width: 300px; height: auto">
+                        <div class="media-body">
+                            <h2 class="mt-1 mb-2">{{ listing.item }}</h2>
+                            <h5 class="mt-1 mb-2">Price: ${{ listing.price }}</h5>
+                            <h6 class="mt-1 mb-1">{{ listing.description }}</h6>
+                            <small class="text-muted">Listed {{ listing.created }}</small>
+                        </div>
+                    </li>
+                </a>
+            {% endif %}
+        {% empty %}
+            <li>No listings posted.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
