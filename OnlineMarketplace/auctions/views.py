@@ -206,9 +206,20 @@ def watch(request):
 
 @login_required(login_url="login")
 def myListings(request):
-    return render(request, "auctions/myListings.html", {
-        "myListings": request.user.selling.all(),
-        "watchCount": len(request.user.watching.all())
+    return render(request, "auctions/viewListings.html", {
+        "title": "My Listings",
+        "listings": request.user.selling.all(),
+        "watchCount": len(request.user.watching.all()),
+        "emptyMessage": "You have no active listings."
+    })
+
+@login_required(login_url="login")
+def myPurchases(request):
+    return render(request, "auctions/viewListings.html", {
+        "title": "My Purchases",
+        "listings": request.user.bought.all(),
+        "watchCount": len(request.user.watching.all()),
+        "emptyMessage": "You have not made any purchases"
     })
 
     
