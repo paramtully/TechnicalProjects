@@ -122,7 +122,7 @@ def listing(request, item_id):
 
     # attempts load listing page
     try:
-        listing = AuctionListing.objects.get(id=int(item_id))
+        listing = AuctionListing.objects.get(id=item_id)
         print(listing.category)
         if listing:
             maxBid = getMaxBid(listing)
@@ -151,7 +151,7 @@ def listing(request, item_id):
 def processBid(request, item_id):
     form = BidForm(request.POST)
     if form.is_valid():
-        listing = AuctionListing.objects.get(id=int(item_id))
+        listing = AuctionListing.objects.get(id=item_id)
         lastBid = max([bid.amount for bid in listing.bids.all()], default=(listing.price - round(Decimal(0.01), ndigits=2)))
 
         if form.cleaned_data["amount"] <= lastBid: return BID_TOO_LOW_ERROR
@@ -168,25 +168,25 @@ def processBid(request, item_id):
 
 
 def processWatch(request, item_id):
-    listing = AuctionListing.objects.get(id=int(item_id))
+    listing = AuctionListing.objects.get(id=item_id)
     watch = WatchList()
 
     watch.watcher = request.user
     watch.listing = listing
 
     if "watch" in request.POST: watch.save()
-    else: request.user.watching.get(listing=int(item_id)).delete()
+    else: request.user.watching.get(listing=item_id).delete()
 
 
 def processCloseListing(item_id):
-    listing = AuctionListing.objects.get(id=int(item_id))
+    listing = AuctionListing.objects.get(id=item_id)
     listing.buyer = getMaxBid(listing).bidder if len(listing.bids.all()) else None
     listing.closed = True
     listing.save()
 
 
 def processComment(request, item_id):
-    listing = AuctionListing.objects.get(id=int(item_id))
+    listing = AuctionListing.objects.get(id=item_id)
     form = CommentForm(request.POST)
     
     if form.is_valid():
